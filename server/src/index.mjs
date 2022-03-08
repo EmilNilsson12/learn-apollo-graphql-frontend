@@ -3,6 +3,9 @@ import { ApolloServer } from 'apollo-server'
 import { typeDefs } from './schema.mjs'
 
 const mocks = {
+  Query: () => ({
+    tracksForHome: () => [...new Array(8)]
+  }),
   Track: () => ({
     id: () => 'track_01',
     title: () => 'Astro Kitty, Space Explorer',
