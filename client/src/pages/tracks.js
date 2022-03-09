@@ -1,5 +1,23 @@
 import React from 'react';
 import { Layout } from '../components';
+import { gql } from '@apollo/client'
+
+export const TRACKS = gql`
+  query ExampleQuery {
+    tracksForHome {
+      length
+      thumbnail
+      title
+      id
+      modulesCount
+      author {
+        photo
+        name
+        id
+      }
+    }
+  }
+`
 
 /**
  * Tracks Page is the Catstronauts home page.
