@@ -18,6 +18,7 @@ const typeDefs = gql`
         thumbnail: String
         length: Int
         modulesCount: Int
+        numberOfViews: Int
     }
 
     "Author of a complete track"

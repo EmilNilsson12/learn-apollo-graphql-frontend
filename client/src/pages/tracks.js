@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout, QueryResult } from '../components';
-import { useQuery, gql } from '@apollo/client'
+import { useQuery, gql } from '@apollo/client';
 import TrackCard from '../containers/track-card';
 
 export const TRACKS = gql`
@@ -11,6 +11,7 @@ export const TRACKS = gql`
       title
       id
       modulesCount
+      numberOfViews
       author {
         photo
         name
@@ -18,17 +19,18 @@ export const TRACKS = gql`
       }
     }
   }
-`
+`;
 
 /**
  * Tracks Page is the Catstronauts home page.
  * We display a grid of tracks fetched with useQuery with the TRACKS query
  */
 const Tracks = () => {
-  const { loading, data, error } = useQuery(TRACKS)
+  const { loading, data, error } = useQuery(TRACKS);
 
   return (
     <Layout grid>
+      <h1>Tracks</h1>
       <QueryResult error={error} loading={loading} data={data}>
         {data?.tracksForHome?.map((track) => (
           <TrackCard key={track.id} track={track} />
