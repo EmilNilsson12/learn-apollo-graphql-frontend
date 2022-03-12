@@ -17,18 +17,19 @@ const resolvers = {
   Mutation: {
     incrementTrackViews: async (_, { id }, { dataSources }) => {
       try {
-        const track = await dataSources.incrementTrackViews(id);
+        const track = await dataSources.trackAPI.incrementTrackViews(id);
         return {
           code: 200,
           success: true,
           message: `Successfully invremented views for track with id: "${id}"`,
           track,
         };
-      } catch (error) {
+      } catch (err) {
+        console.log('err: ', err);
         return {
-          code: error.extensions.response.status,
+          code: err.extensions.response.status,
           success: false,
-          message: `Error occured: ${error.extensions.response.body}`,
+          message: `Error occured: ${err.extensions.response.body}`,
           track: null,
         };
       }
