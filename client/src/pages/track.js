@@ -33,7 +33,6 @@ const Track = ({ trackId }) => {
   return (
     <Layout>
       <QueryResult data={data} loading={loading} error={error}>
-        <p>Success</p>
         <TrackDetail track={data?.track} />
       </QueryResult>
     </Layout>
