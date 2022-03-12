@@ -1,4 +1,4 @@
-import { gql } from 'apollo-server';
+import { gql } from "apollo-server";
 
 // This file defines the fields that are chosen to be used in the query
 // There are additional fields available on the Track object
