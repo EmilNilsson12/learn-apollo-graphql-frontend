@@ -16,13 +16,22 @@ const resolvers = {
   },
   Mutation: {
     incrementTrackViews: async (_, { id }, { dataSources }) => {
-      const track = await dataSources.incrementTrackViews(id);
-      return {
-        code: 200,
-        success: true,
-        message: `Successfully invremented views for track with id: "${id}"`,
-        track,
-      };
+      try {
+        const track = await dataSources.incrementTrackViews(id);
+        return {
+          code: 200,
+          success: true,
+          message: `Successfully invremented views for track with id: "${id}"`,
+          track,
+        };
+      } catch (error) {
+        return {
+          code: error.extensions.response.status,
+          success: false,
+          message: `Error occured: ${error.extensions.response.body}`,
+          track: null,
+        };
+      }
     },
   },
   Track: {
