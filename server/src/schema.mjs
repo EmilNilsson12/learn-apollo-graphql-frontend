@@ -6,27 +6,35 @@ import { gql } from 'apollo-server';
 // for more details
 
 const typeDefs = gql`
-    type Query {
-        tracksForHome: [Track!]!
-    }
+  type Query {
+    tracksForHome: [Track!]!
+  }
 
-    "A track is a group of Modules that teaches about a specific topic"
-    type Track {
-        id: ID!
-        title: String!
-        author: Author!
-        thumbnail: String
-        length: Int
-        modulesCount: Int
-        numberOfViews: Int
-    }
+  "A track is a group of Modules that teaches about a specific topic"
+  type Track {
+    id: ID!
+    title: String!
+    author: Author!
+    thumbnail: String
+    length: Int
+    modulesCount: Int
+    modules: [Module!]!
+    description: String
+    numberOfViews: Int
+  }
 
-    "Author of a complete track"
-    type Author {
-        id: ID!
-        name: String!
-        photo: String
-    }
+  "Author of a complete track"
+  type Author {
+    id: ID!
+    name: String!
+    photo: String
+  }
+
+  type Module {
+    id: ID!
+    title: String!
+    length: Int
+  }
 `;
 
 export { typeDefs };
