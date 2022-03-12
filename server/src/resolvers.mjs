@@ -7,17 +7,20 @@
 
 const resolvers = {
   Query: {
-    tracksForHome: (_, __, { dataSources }) =>
-      dataSources.trackAPI.getTracksForHome(),
+    tracksForHome: (_, __, { dataSources }) => {
+      return dataSources.trackAPI.getTracksForHome();
+    },
     track: (_, { id }, { dataSources }) => {
-      dataSources.trackAPI.getTrack(id);
+      return dataSources.trackAPI.getTrack(id);
     },
   },
   Track: {
-    author: ({ authorId }, __, { dataSources }) =>
-      dataSources.trackAPI.getAuthor(authorId),
-    modules: ({ id }, __, { dataSources }) =>
-      dataSources.trackAPI.getTrackModules(id),
+    author: ({ authorId }, __, { dataSources }) => {
+      return dataSources.trackAPI.getAuthor(authorId);
+    },
+    modules: ({ id }, __, { dataSources }) => {
+      return dataSources.trackAPI.getTrackModules(id);
+    },
   },
 };
 
