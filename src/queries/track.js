@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const GET_TRACK = gql`
-  query track($trackId: ID!) {
+  query GetTrackQuery($trackId: ID!) {
     track(id: $trackId) {
       id
       title

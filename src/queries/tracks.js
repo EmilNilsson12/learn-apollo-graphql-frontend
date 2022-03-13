@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const TRACKS = gql`
-  query ExampleQuery {
+  query GetTracksForHomeQuery {
     tracksForHome {
       durationInSeconds
       thumbnail

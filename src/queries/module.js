@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const GET_MODULE = gql`
-  query Query($moduleId: ID!) {
+  query GetModuleQuery($moduleId: ID!) {
     module(id: $moduleId) {
       id
       title
