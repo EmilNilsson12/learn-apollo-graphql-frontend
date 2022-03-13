@@ -8,7 +8,7 @@ export const GET_TRACK = gql`
       id
       title
       thumbnail
-      length
+      durationInSeconds
       modulesCount
       description
       numberOfViews

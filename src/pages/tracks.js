@@ -1,12 +1,12 @@
-import React from "react";
-import { Layout, QueryResult } from "../components";
-import { useQuery, gql } from "@apollo/client";
-import TrackCard from "../containers/track-card";
+import React from 'react';
+import { Layout, QueryResult } from '../components';
+import { useQuery, gql } from '@apollo/client';
+import TrackCard from '../containers/track-card';
 
 export const TRACKS = gql`
   query ExampleQuery {
     tracksForHome {
-      length
+      durationInSeconds
       thumbnail
       title
       id
