@@ -16,4 +16,4 @@ const Track = ({ trackId }) => {
   );
 };
 
-export { Track };
+export default Track;
